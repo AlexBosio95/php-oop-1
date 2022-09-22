@@ -7,12 +7,12 @@ class Movie {
     public $ImagePath;
     private $Vote = 0;
 
-    public function __construct($Title, $Type, $ImagePath = null, $Vote)
+    public function __construct($Title, $Type, $ImagePath = null)
     {
         $this->Title = $Title;
         $this->Type = $Type;
         $this->ImagePath = $ImagePath;
-        $this->Vote = $Vote;
+        $this->Vote = rand(0,5);
     }
 
     public function getCard() {
@@ -44,9 +44,9 @@ class Movie {
 
 }
 
-$FirstMovie = new Movie('Inexorable', 'Thriller', 'https://www.themoviedb.org/t/p/w1280/iiclsw6zgRJz5D5Cc6sn4Cs9GQo.jpg', 3);
-$SecondMovie = new Movie('Minions 2 - Come Gru diventa cattivissimo', 'Animazione', 'https://www.themoviedb.org/t/p/w1280/l8wQX5pmPh33uRTTToBscNcspRr.jpg', 4);
-$thirdMovie = new Movie('Beast', 'Avventura', 'https://www.themoviedb.org/t/p/w1280/iRV0IB5xQeOymuGGUBarTecQVAl.jpg', 4);
+$FirstMovie = new Movie('Inexorable', 'Thriller', 'https://www.themoviedb.org/t/p/w1280/iiclsw6zgRJz5D5Cc6sn4Cs9GQo.jpg');
+$SecondMovie = new Movie('Minions 2 - Come Gru diventa cattivissimo', 'Animazione', 'https://www.themoviedb.org/t/p/w1280/l8wQX5pmPh33uRTTToBscNcspRr.jpg');
+$thirdMovie = new Movie('Beast', 'Avventura', 'https://www.themoviedb.org/t/p/w1280/iRV0IB5xQeOymuGGUBarTecQVAl.jpg');
 
 ?>
 
