@@ -5,7 +5,7 @@ class Movie {
     public $Title;
     public $Type;
     public $ImagePath;
-    public $Vote = 0;
+    private $Vote = 0;
 
     public function __construct($Title, $Type, $ImagePath = null, $Vote)
     {
@@ -32,6 +32,14 @@ class Movie {
         for ($i=0; $i < $numberVote; $i++) { 
             echo '<i class="fa-solid fa-star"></i>';
         }
+
+        $restVote = 5 - $numberVote;
+
+        if ($restVote > 0) {
+            for ($i=0; $i < $restVote; $i++) { 
+                echo '<i class="fa-regular fa-star"></i>';
+            }
+        }
     }
 
 }
@@ -51,9 +59,10 @@ $thirdMovie = new Movie('Beast', 'Avventura', 'https://www.themoviedb.org/t/p/w1
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Cards with OOP</title>
 </head>
 <body>
+    <h1 class="text-center">Cards OOP</h1>
     <div class="container-card">
         <?php 
             echo $FirstMovie->getCard();
