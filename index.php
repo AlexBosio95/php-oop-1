@@ -16,14 +16,22 @@ class Movie {
     }
 
     public function getCard() {
+
         echo '<div class="card">';
         echo '<img src="' . $this->ImagePath . '" alt="" srcset="">';
         echo '<div class= "text-center">';
         echo '<h2>' . $this->Title . '</h2>';
         echo '<h3>' . $this->Type . '</h3>';
-        echo '<h5>' . $this->Vote . '</h5>';
+        $this->getVoteStar($this->Vote);
         echo '</div>';
         echo '</div>';
+    }
+
+    public function getVoteStar($numberVote){
+        
+        for ($i=0; $i < $numberVote; $i++) { 
+            echo '<i class="fa-solid fa-star"></i>';
+        }
     }
 
 }
@@ -41,6 +49,7 @@ $thirdMovie = new Movie('Beast', 'Avventura', 'https://www.themoviedb.org/t/p/w1
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
