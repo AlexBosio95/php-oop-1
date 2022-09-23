@@ -12,7 +12,16 @@ class Movie {
         $this->Title = $Title;
         $this->Type = $Type;
         $this->ImagePath = $ImagePath;
-        $this->Vote = rand(0,5);
+        $this->Vote = $this->getRandNumber();
+        
+    }
+
+    public function getRandNumber(){
+        try{
+            return rand(1,5);
+        } catch (Exception $e){
+            return 0;
+        };
     }
 
     public function getCard() {
@@ -28,18 +37,24 @@ class Movie {
     }
 
     public function getVoteStar($numberVote){
-        
-        for ($i=0; $i < $numberVote; $i++) { 
-            echo '<i class="fa-solid fa-star"></i>';
-        }
 
-        $restVote = 5 - $numberVote;
+        if ($numberVote != null) {
 
-        if ($restVote > 0) {
-            for ($i=0; $i < $restVote; $i++) { 
-                echo '<i class="fa-regular fa-star"></i>';
+            for ($i=0; $i < $numberVote; $i++) { 
+                echo '<i class="fa-solid fa-star"></i>';
             }
+    
+            $restVote = 5 - $numberVote;
+    
+            if ($restVote > 0) {
+                for ($i=0; $i < $restVote; $i++) { 
+                    echo '<i class="fa-regular fa-star"></i>';
+                }
+            }
+        } else {
+            throw new Exception('No vote');
         }
+        
     }
 
 }
